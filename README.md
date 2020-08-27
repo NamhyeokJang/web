@@ -13,3 +13,4 @@ html + css + js 웹페이지
 - [Hover_Card](https://namhyeokjang.github.io/web/hover_card)
 - [Full_Page](https://namhyeokjang.github.io/web/full_page)
 - [Slide_Only_HTML&CSS](https://namhyeokjang.github.io/web/slider)
+- [Slide2](https://namhyeokjang.github.io/web/slider2)
