@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>AueSome Web Design</title>
+</head>
+
+<body>
+  <div id="hero">
+    <div class="navbar">
+      <img src="assets/logo.png" alt="logo" class="logo">
+      <div class="user">
+        <button type='button'>Explore</button>
+        <img src="assets/user.png" alt="user">
+      </div>
+    </div>
+    <div class="container">
+      <div class="info">
+        <h1>Discover</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+          Dolorem porro ratione impedit perferendis nam sed
+          voluptatibus fuga natus a, <br>
+          magnam atque illum molestiae,
+          placeat error sint sunt quo repellat assumenda.</p>
+        <input type="text" placeholder="Search">
+      </div>
+    </div>
+    <div class="slider">
+      <img src="assets/left-arrow.png" alt="arrow" id='prev'>
+      <div class="preview">
+        <img src="assets/small1.png" alt="thumnail" class="thumbnail active">
+        <img src="assets/small2.png" alt="thumnail" class="thumbnail">
+        <img src="assets/small3.png" alt="thumnail" class="thumbnail">
+        <img src="assets/small4.png" alt="thumnail" class="thumbnail">
+        <img src="assets/small5.png" alt="thumnail" class="thumbnail">
+      </div>
+      <img src="assets/right-arrow.png" alt="arrow" id='next'>
+    </div>
+  </div>
+
+  <script>
+    var prev = document.getElementById('prev')
+    var next = document.getElementById('next')
+    var thumbnails = document.getElementsByClassName('thumbnail')
+    var hero = document.getElementById('hero')
+
+    var backgroundImg = new Array(
+      "assets/bg1.png",
+      "assets/bg2.png",
+      "assets/bg3.png",
+      "assets/bg4.png",
+      "assets/bg5.png",
+    )
+    let i = 0
+    for (let j = 0; j < thumbnails.length; j++) {
+      thumbnails[j].onclick = function () {
+        for (let k = 0; k < thumbnails.length; k++) {
+          thumbnails[k].classList.remove('active')
+        }
+        thumbnails[j].classList.add('active')
+        hero.style.backgroundImage = 'url("' + backgroundImg[j] + '")'
+        i = j
+      }
+    }
+
+    next.onclick = function () {
+      if (i < 4) {
+        hero.style.backgroundImage = 'url("' + backgroundImg[i + 1] + '")'
+        thumbnails[i + 1].classList.add('active')
+        thumbnails[i].classList.remove('active')
+        i++
+      }
+    }
+    prev.onclick = function () {
+      if (i > 0) {
+        hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")'
+        thumbnails[i - 1].classList.add('active')
+        thumbnails[i].classList.remove('active')
+        i--
+      }
+    }
+  </script>
+</body>
+
+</html>
